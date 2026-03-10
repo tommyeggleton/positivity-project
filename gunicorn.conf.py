@@ -21,6 +21,8 @@ bind = ["[::]:{}".format(os.environ.get("PORT", 5006))]
 
 print(f"Searching for PORT ENV")
 print(f'Found "{os.environ.get("PORT", "nothing")}"')
+print(f"bind resolved to: {bind}")
+print(f"GUNICORN_CMD_ARGS: {os.environ.get('GUNICORN_CMD_ARGS', 'not set')}")
 
 # The default `sync` worker is more suited to CPU/network-bandwidth bound workloads, so we
 # instead use the thread based worker type for improved support of blocking I/O workloads:
