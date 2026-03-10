@@ -15,7 +15,7 @@ import os
 # Gunicorn will automatically use the `PORT` env var, however, by default it will bind to the
 # port using the IPv4 interface (`0.0.0.0`). We configure the binding explicitly here to ensure
 # it works correctly on Heroku dynos, which do not support IPv6 binding.
-bind = ["0.0.0.0:{}".format(os.environ.get("PORT", 5006))]
+bind = [f"{os.environ.get("PORT", 5006)}"]
 
 # The default `sync` worker is more suited to CPU/network-bandwidth bound workloads, so we
 # instead use the thread based worker type for improved support of blocking I/O workloads:
