@@ -19,6 +19,9 @@ print("Found file: gunicorn.conf.py")
 # (IPv4 connections will still work so long as `IPV6_V6ONLY` hasn't been enabled.)
 bind = ["[::]:{}".format(os.environ.get("PORT", 5006))]
 
+print(f"Searching for PORT ENV")
+print(f'Found "{os.environ.get("PORT", "nothing")}"')
+
 # The default `sync` worker is more suited to CPU/network-bandwidth bound workloads, so we
 # instead use the thread based worker type for improved support of blocking I/O workloads:
 # https://docs.gunicorn.org/en/stable/design.html#server-model
@@ -35,7 +38,7 @@ worker_class = "gthread"
 # gunicorn will start this many worker processes. The Python buildpack automatically sets a
 # default for WEB_CONCURRENCY at dyno boot, based on the number of CPUs and available RAM:
 # https://devcenter.heroku.com/articles/python-concurrency
-workers = os.environ.get("WEB_CONCURRENCY", 1)
+workers = int(os.environ.get("WEB_CONCURRENCY", 1))
 
 # Each `gthread` worker process will use a pool of this many threads.
 threads = 5
