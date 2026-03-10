@@ -7,6 +7,7 @@
 # https://github.com/heroku/heroku-buildpack-python/blob/main/vendor/python.gunicorn.sh
 
 import os
+print("Found file: gunicorn.conf.py")
 
 # On Heroku, web dynos must bind to the port number specified via the `PORT` env var. This
 # env var is set automatically for web dynos and also when using `heroku local` locally:
