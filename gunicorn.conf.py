@@ -8,6 +8,9 @@
 
 import os
 
+print("GUNICORN_CMD_ARGS")
+print(os.environ.get("GUNICORN_CMD_ARGS", default="No args founds"))
+
 # On Heroku, web dynos must bind to the port number specified via the `PORT` env var. This
 # env var is set automatically for web dynos and also when using `heroku local` locally:
 # https://devcenter.heroku.com/articles/dyno-startup-behavior#port-binding-of-web-dynos
