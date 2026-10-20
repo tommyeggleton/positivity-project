@@ -120,3 +120,15 @@ The `Procfile` runs `python manage.py migrate` automatically on each deploy via 
 |-------|-------------|-------------------|
 | `id`  | BigAutoField | Primary key, auto |
 | `text`| TextField   | The gratitude text |
+
+
+Here is a simple flow chart:
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+
